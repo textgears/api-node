@@ -1,0 +1,28 @@
+{
+  "name": "textgears-api",
+  "version": "1.0.6",
+  "description": "Textgears API",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "nyc mocha"
+  },
+  "keywords": [
+    "textgears",
+    "spelling",
+    "grammar",
+    "text",
+    "check"
+  ],
+  "author": "Alexander Yakovlev <insbrook@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.1",
+    "extend": "^3.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "proxyquire": "^1.8.0"
+  }
+}
