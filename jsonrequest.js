@@ -32,7 +32,7 @@ module.exports = function (url, key, data) {
     return new Promise(function(resolve, reject) {
         data = data || {};
         data.key = key;
-        data.poweredBy = 'node-textgears-api';
+        data.poweredBy = 'textgears-api';
         // Do async job
         const requestOptions = {
             method: 'post',

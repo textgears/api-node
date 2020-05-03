@@ -97,6 +97,26 @@ Api.prototype.analyzeText = function(text, requestOptions) {
 };
 
 /**
+ * Suggest corrected text version
+ * @param {string} text
+ * @param {object} requestOptions
+ * @returns {Promise}
+ */
+Api.prototype.suggest = function(text, requestOptions) {
+    return this._checkText('suggest', text, requestOptions);
+};
+
+/**
+ * Suggest corrected text version
+ * @param {string} text
+ * @param {object} requestOptions
+ * @returns {Promise}
+ */
+Api.prototype.detectLanguage = function(text, requestOptions) {
+    return this._checkText('detect', text, requestOptions);
+};
+
+/**
  * Get usage stats by day
  * @param period_start
  * @param period_end

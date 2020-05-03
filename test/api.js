@@ -106,6 +106,24 @@ describe('API', function () {
             .catch(() => assert.fail("Rejection not expected here"))
     });
 
+    it('should provide language detection', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).detectLanguage('some words')
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide fix suggestions', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).suggest('some words')
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
     it('should provide account usage info with or without period', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),

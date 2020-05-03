@@ -1,6 +1,6 @@
 {
   "name": "textgears-api",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Textgears API",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -21,7 +21,7 @@
     "extend": "^3.0.2"
   },
   "devDependencies": {
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.3",
     "nyc": "^14.1.1",
     "proxyquire": "^1.8.0"
   }

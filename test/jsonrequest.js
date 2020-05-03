@@ -29,7 +29,7 @@ const validJsonStub = fn => {
             method: 'post',
             url: 'http://domain.tld',
             headers: { 'Content-Type': 'application/vnd.api+json' },
-            data: { dataKey: 'dataValue', key: 'somekey', poweredBy: 'node-textgears-api' },
+            data: { dataKey: 'dataValue', key: 'somekey', poweredBy: 'textgears-api' },
             timeout: 10000,
             responseType: 'json',
             maxRedirects: 3

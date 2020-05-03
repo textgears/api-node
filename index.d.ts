@@ -34,7 +34,8 @@ declare module "textgears-api" {
  * Text processing options
  */
 interface IRequestOptions {
-    language?: string
+    language?: string,
+    endpoint?: string
 }
 
 /**
@@ -75,6 +76,19 @@ interface ITextgearsApi {
      * @param options
      */
     analyzeText(text: string, options?: IRequestOptions): Promise<any>;
+
+    /**
+     * Suggest corrected text
+     * @param text
+     * @param options
+     */
+    suggest(text: string, options?: IRequestOptions): Promise<any>;
+
+    /**
+     * Detect text language
+     * @param text
+     */
+    detectLanguage(text: string): Promise<any>;
 
     /**
      * Get API usage stats grouped by date
