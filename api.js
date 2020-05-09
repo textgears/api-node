@@ -122,7 +122,7 @@ Api.prototype.detectLanguage = function(text, requestOptions) {
  * @param period_end
  * @returns {Promise}
  */
-Api.prototype.getAccountUsage = function (period_start = null, period_end = null) {
+Api.prototype.getAccountUsage = function (period_start, period_end) {
     let periodFilter = {};
     if (period_start) {
         periodFilter.period_start = (new Date(period_start)).toISOString()
