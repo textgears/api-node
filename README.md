@@ -1,4 +1,4 @@
-# textgears-api [![travis-badge]][travis]
+# Textgears API for javascript [![travis-badge]][travis]
 
 > [Textgears][textgears] API for node.js
 
