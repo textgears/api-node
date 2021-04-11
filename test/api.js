@@ -145,11 +145,65 @@ describe('API', function () {
             .catch(() => assert.fail("Rejection not expected here"))
     });
 
-    it('should provide account payments history', function () {
+    it('should provide dictionary creation', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),
         });
-        getTestApiProvider(jsonRequest).getAccountPayments()
+        getTestApiProvider(jsonRequest).createDictionary(123, "test")
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide dictionary update', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).updateDictionary(123, "new title")
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide dictionary listing', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).listDictionaries(10, 0)
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide dictionary removing', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).deleteDictionary(123)
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide exception creation', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).addException("Word", 1, "en-US", 123)
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide exceptions listing', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).listExceptions(50, 0, 123, "test", 1, "en-US")
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide exception removing', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).deleteException(5, 123)
             .then(() => assert.ok(true))
             .catch(() => assert.fail("Rejection not expected here"))
     });

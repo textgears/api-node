@@ -75,39 +75,4 @@ describe('textgears', function () {
 
         return textgears('someKey').checkSpelling('some words');
     });
-
-    //
-    // it('should reject empty text checking requests', function () {
-    //     const textgears = proxyquire('../index', {
-    //         'jsonrequest': noCallThruStub(() => Promise.resolve()),
-    //     });
-    //     assert.throws(
-    //         () => {
-    //             return textgears('someKey').checkGrammar();
-    //         },
-    //         {
-    //             name: 'Error',
-    //             message: 'Text to check cannot be empty',
-    //         }
-    //     );
-    // });
 });
-
-// return textgears().then(
-//     () => Promise.reject(new Error('Rejection was expected')),
-//     () => {}
-// );
-//
-// return textgears({
-//     text: 'I is an enginer',
-// }).then(() => Promise.reject(new Error('Rejection was expected')), () => {});
-
-// var assert = require('assert');
-//
-// describe('Array', function() {
-//     describe('#indexOf()', function() {
-//         it('should return -1 when the value is not present', function() {
-//             assert.equal([1, 2, 3].indexOf(4), -1);
-//         });
-//     });
-// });

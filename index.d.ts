@@ -103,7 +103,57 @@ interface ITextgearsApi {
     getAccountResourceQuota(): Promise<any>;
 
     /**
-     * Get a list of recent payments
+     * Create a group for exclusions
+     * @param customId
+     * @param title
      */
-    getAccountPayments(): Promise<any>;
+    createDictionary(customId?: string, title?: string): Promise<any>;
+
+    /**
+     * Update a group of exclusions
+     * @param customId
+     * @param title
+     */
+    updateDictionary(customId?: string, title?: string): Promise<any>;
+
+    /**
+     * List groups of exclusions
+     * @param limit
+     * @param offset
+     */
+    listDictionaries(limit: number, offset?: number): Promise<any>;
+
+    /**
+     * Remove a group of exclusions
+     * @param customId
+     */
+    deleteDictionary(customId?: string): Promise<any>;
+
+    /**
+     * Add an exception
+     * @param text
+     * @param type
+     * @param lang
+     * @param dictionaryId
+     * @param description
+     */
+    addException(text: string, type: number, lang: string, dictionaryId?: string, description?: string): Promise<any>;
+
+    /**
+     * List exceptions
+     * @param limit
+     * @param offset
+     * @param dictionaryId
+     * @param text
+     * @param type
+     * @param lang
+     */
+    listExceptions(limit: number, offset?: number, dictionaryId?: string, text?: string, type?: number, lang?: string): Promise<any>;
+
+    /**
+     * Remove exception
+     * @param id
+     * @param dictionaryId
+     */
+    deleteException(id: string, dictionaryId?: string): Promise<any>;
 }

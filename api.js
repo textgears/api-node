@@ -146,11 +146,123 @@ Api.prototype.getAccountResourceQuota = function () {
 };
 
 /**
- * Get account payment history
+ * Create a group for exclusions
  * @returns {Promise}
  */
-Api.prototype.getAccountPayments = function () {
-    return this.request(this.options.endpoint + '/account/payments', this.key);
+Api.prototype.createDictionary = function (customId, title) {
+    return this.request(
+        this.options.endpoint + '/custom/createDictionary',
+        this.key,
+        {
+            id: customId,
+            title: title,
+        }
+    );
+};
+
+/**
+ * Update a group of exclusions
+ * @returns {Promise}
+ */
+Api.prototype.updateDictionary = function (customId, title) {
+    return this.request(
+        this.options.endpoint + '/custom/updateDictionary',
+        this.key,
+        {
+            id: customId,
+            title: title,
+        }
+    );
+};
+
+/**
+ * List groups of exclusions
+ * @returns {Promise}
+ */
+Api.prototype.listDictionaries = function (limit, offset) {
+    return this.request(
+        this.options.endpoint + '/custom/listDictionaries',
+        this.key,
+        {
+            limit: limit || 25,
+            offset: offset || 0,
+        }
+    );
+};
+
+/**
+ * Remove a group of exclusions
+ * @returns {Promise}
+ */
+Api.prototype.deleteDictionary = function (customId) {
+    return this.request(
+        this.options.endpoint + '/custom/deleteDictionary',
+        this.key,
+        {
+            id: customId,
+        }
+    );
+};
+
+/**
+ * Add an exception
+ * @returns {Promise}
+ */
+Api.prototype.addException = function (text, type, lang, dictionaryId, description) {
+    return this.request(
+        this.options.endpoint + '/custom/addException',
+        this.key,
+        {
+            text: text,
+            type: type,
+            lang: lang,
+            dictionary_id: dictionaryId || null,
+            description: description || null,
+        }
+    );
+};
+
+/**
+ * List exceptions
+ * @returns {Promise}
+ */
+Api.prototype.listExceptions = function (limit, offset, dictionaryId, text, type, lang) {
+    let filter = {
+        dictionary_id: dictionaryId || null,
+        limit: limit,
+        offset: offset,
+    };
+
+    if (type) {
+        filter.type = type;
+    }
+    if (text) {
+        filter.text = text;
+    }
+    if (lang) {
+        filter.lang = lang;
+    }
+
+    return this.request(
+        this.options.endpoint + '/custom/listExceptions',
+        this.key,
+        filter
+    );
+};
+
+/**
+ * Remove exception
+ * @returns {Promise}
+ */
+Api.prototype.deleteException  = function (id, dictionaryId) {
+    return this.request(
+        this.options.endpoint + '/custom/deleteException',
+        this.key,
+        {
+            id: id,
+            dictionary_id: dictionaryId || null,
+        }
+    );
 };
 
 module.exports = Api;
