@@ -136,8 +136,9 @@ interface ITextgearsApi {
      * @param lang
      * @param dictionaryId
      * @param description
+     * @param suggestions
      */
-    addException(text: string, type: number, lang: string, dictionaryId?: string, description?: string): Promise<any>;
+    addException(text: string, type: number, lang: string, dictionaryId?: string, description?: string, suggestions?: Array<string>): Promise<any>;
 
     /**
      * List exceptions

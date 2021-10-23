@@ -24,7 +24,7 @@ import textgears from 'textgears-api';
 const textgearsApi = textgears('YOUR_KEY', {language: 'en-US'});
 textgearsApi.checkGrammar('I is a engineer')
     .then((data) => {
-        for (const error of data.errors) {
+        for (const error of data.response.errors) {
             console.log('Error: %s. Suggestions: %s', error.bad, error.better.join(', '));
         }
     })

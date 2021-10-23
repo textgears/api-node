@@ -185,7 +185,7 @@ describe('API', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),
         });
-        getTestApiProvider(jsonRequest).addException("Word", 1, "en-US", 123)
+        getTestApiProvider(jsonRequest).addException("Word", 1, "en", 123, "Description", ["one", "two"])
             .then(() => assert.ok(true))
             .catch(() => assert.fail("Rejection not expected here"))
     });
@@ -194,7 +194,7 @@ describe('API', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),
         });
-        getTestApiProvider(jsonRequest).listExceptions(50, 0, 123, "test", 1, "en-US")
+        getTestApiProvider(jsonRequest).listExceptions(50, 0, 123, "test", 1, "en")
             .then(() => assert.ok(true))
             .catch(() => assert.fail("Rejection not expected here"))
     });

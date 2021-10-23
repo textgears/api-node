@@ -208,7 +208,7 @@ Api.prototype.deleteDictionary = function (customId) {
  * Add an exception
  * @returns {Promise}
  */
-Api.prototype.addException = function (text, type, lang, dictionaryId, description) {
+Api.prototype.addException = function (text, type, lang, dictionaryId, description, suggestions) {
     return this.request(
         this.options.endpoint + '/custom/addException',
         this.key,
@@ -218,6 +218,7 @@ Api.prototype.addException = function (text, type, lang, dictionaryId, descripti
             lang: lang,
             dictionary_id: dictionaryId || null,
             description: description || null,
+            suggestions: suggestions || null
         }
     );
 };
