@@ -36,14 +36,15 @@ const api = require('./api');
  *
  * You can leave endpoint unset to use default value.
  * Or you can specify the closest endpoint to you:
- * https://us.api.textgears.com - the United State location
+ * https://us.api.textgears.com - The United States location
  * https://sg.api.textgears.com - Singapore endpoint (works the best for Asia)
  * https://eu.api.textgears.com - European endpoint
  */
 function textgears(key, options) {
     const defaultSettings = {
         endpoint: "https://api.textgears.com",
-        language: "en-US"
+        language: "en-US",
+        ai: false
     };
     options = extend(defaultSettings, options);
 

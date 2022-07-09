@@ -1,6 +1,6 @@
 {
   "name": "textgears-api",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Textgears API",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -12,7 +12,8 @@
     "spelling",
     "grammar",
     "text",
-    "check"
+    "check",
+    "correction"
   ],
   "author": "Alexander Yakovlev <insbrook@gmail.com>",
   "license": "ISC",

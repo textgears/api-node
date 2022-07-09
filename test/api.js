@@ -70,6 +70,15 @@ describe('API', function () {
         );
     });
 
+    it('should provide automatic text correction', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).correct('some words', {ai: true})
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
     it('should provide spell check', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),

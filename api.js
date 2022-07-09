@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2019, Alexander Yakovlev <insbrook@gmail.com>
+// Copyright (c) 2022, Alexander Yakovlev <insbrook@gmail.com>
 //
 //   Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -51,9 +51,20 @@ Api.prototype._checkText = function(checkMethod, text, requestOptions) {
         this.key,
         {
             text: text,
-            language: requestOptions.language || this.options.language
+            language: requestOptions.language || this.options.language,
+            ai: requestOptions.ai || this.options.ai,
         }
     );
+};
+
+/**
+ * Spell check
+ * @param {string} text
+ * @param {object} requestOptions
+ * @returns {Promise}
+ */
+Api.prototype.correct = function(text, requestOptions) {
+    return this._checkText('correct', text, requestOptions);
 };
 
 /**

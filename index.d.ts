@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2019, Alexander Yakovlev <insbrook@gmail.com>
+// Copyright (c) 2022, Alexander Yakovlev <insbrook@gmail.com>
 //
 //   Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -35,7 +35,8 @@ declare module "textgears-api" {
  */
 interface IRequestOptions {
     language?: string,
-    endpoint?: string
+    endpoint?: string,
+    ai?: boolean,
 }
 
 /**
@@ -49,6 +50,13 @@ interface ICheckRequestOptions extends IRequestOptions {
  * Api provider interface
  */
 interface ITextgearsApi {
+    /**
+     * Autocorrect text
+     * @param text
+     * @param options
+     */
+    correct(text: string, options?: ICheckRequestOptions): Promise<any>;
+
     /**
      * Spell checking
      * @param text
