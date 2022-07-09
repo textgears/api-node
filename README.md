@@ -21,7 +21,7 @@ $ yarn add textgears-api
 ```js
 import textgears from 'textgears-api';
 
-const textgearsApi = textgears('YOUR_KEY', {language: 'en-US'});
+const textgearsApi = textgears('YOUR_KEY', {language: 'en-US', ai: false});
 textgearsApi.checkGrammar('I is a engineer')
     .then((data) => {
         for (const error of data.response.errors) {
