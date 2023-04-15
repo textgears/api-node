@@ -74,7 +74,25 @@ describe('API', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),
         });
-        getTestApiProvider(jsonRequest).correct('some words', {ai: true})
+        getTestApiProvider(jsonRequest).correct('some words')
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide text translation', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).translate('some words')
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
+    it('should provide automatic text paraphrising', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).paraphrase('some words')
             .then(() => assert.ok(true))
             .catch(() => assert.fail("Rejection not expected here"))
     });

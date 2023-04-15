@@ -43,13 +43,34 @@ interface IRequestOptions {
  *  Text checking options
  */
 interface ICheckRequestOptions extends IRequestOptions {
-    rules: any[]; // @TODO implement rules list
+    rules: any[];
+}
+
+/**
+ *  Translation options
+ */
+interface ITranslateOptions extends IRequestOptions {
+    target_language: string
 }
 
 /**
  * Api provider interface
  */
 interface ITextgearsApi {
+    /**
+     * Autocorrect text
+     * @param text
+     * @param options
+     */
+    translate(text: string | Array<string>, options?: ITranslateOptions): Promise<any>;
+
+    /**
+     * Text paraphrasing
+     * @param text
+     * @param options
+     */
+    paraphrase(text: string | Array<string>, options?: ICheckRequestOptions): Promise<any>;
+
     /**
      * Autocorrect text
      * @param text

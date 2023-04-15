@@ -58,13 +58,33 @@ Api.prototype._checkText = function(checkMethod, text, requestOptions) {
 };
 
 /**
- * Spell check
+ * Autocorrection check
  * @param {string} text
  * @param {object} requestOptions
  * @returns {Promise}
  */
 Api.prototype.correct = function(text, requestOptions) {
     return this._checkText('correct', text, requestOptions);
+};
+
+/**
+ * Paraphrase text
+ * @param {string} text
+ * @param {object} requestOptions
+ * @returns {Promise}
+ */
+Api.prototype.paraphrase = function(text, requestOptions) {
+    return this._checkText('paraphrase', text, requestOptions);
+};
+
+/**
+ * Translate from one language to another
+ * @param {string} text
+ * @param {object} requestOptions
+ * @returns {Promise}
+ */
+Api.prototype.translate = function(text, requestOptions) {
+    return this._checkText('translate', text, requestOptions);
 };
 
 /**
