@@ -19,7 +19,7 @@ $ yarn add textgears-api
 ## usage
 
 ```js
-import textgears from 'textgears-api';
+import * as textgears from 'textgears-api';
 
 const textgearsApi = textgears('YOUR_KEY', {language: 'en-US', ai: false});
 textgearsApi.checkGrammar('I is a engineer')
