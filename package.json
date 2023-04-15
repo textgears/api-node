@@ -1,6 +1,6 @@
 {
   "name": "textgears-api",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Textgears API",
   "main": "index.js",
   "typings": "index.d.ts",
