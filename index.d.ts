@@ -43,7 +43,7 @@ interface IRequestOptions {
  *  Text checking options
  */
 interface ICheckRequestOptions extends IRequestOptions {
-    rules: any[];
+    rules?: any[];
 }
 
 /**
@@ -62,21 +62,21 @@ interface ITextgearsApi {
      * @param text
      * @param options
      */
-    translate(text: string | Array<string>, options?: ITranslateOptions): Promise<any>;
+    translate(text: string | Array<string>, options?: IRequestOptions): Promise<any>;
 
     /**
      * Text paraphrasing
      * @param text
      * @param options
      */
-    paraphrase(text: string | Array<string>, options?: ICheckRequestOptions): Promise<any>;
+    paraphrase(text: string | Array<string>, options?: IRequestOptions): Promise<any>;
 
     /**
      * Split sentences
      * @param text
      * @param options
      */
-    splitSentences(text: string | Array<string>, options?: ICheckRequestOptions): Promise<any>;
+    splitSentences(text: string | Array<string>, options?: IRequestOptions): Promise<any>;
 
     /**
      * Autocorrect text
@@ -104,14 +104,14 @@ interface ITextgearsApi {
      * @param text
      * @param options
      */
-    checkReadability(text: string, options?: ICheckRequestOptions): Promise<any>;
+    checkReadability(text: string, options?: IRequestOptions): Promise<any>;
 
     /**
      * Check grammar + calc text metrics
      * @param text
      * @param options
      */
-    analyzeText(text: string, options?: IRequestOptions): Promise<any>;
+    analyzeText(text: string, options?: ICheckRequestOptions): Promise<any>;
 
     /**
      * Suggest corrected text
