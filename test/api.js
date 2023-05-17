@@ -88,6 +88,15 @@ describe('API', function () {
             .catch(() => assert.fail("Rejection not expected here"))
     });
 
+    it('should provide text split', function () {
+        const jsonRequest = proxyquire('../jsonrequest', {
+            'axios': validJsonStub(() => {}),
+        });
+        getTestApiProvider(jsonRequest).splitSentences('some words. another words')
+            .then(() => assert.ok(true))
+            .catch(() => assert.fail("Rejection not expected here"))
+    });
+
     it('should provide automatic text paraphrising', function () {
         const jsonRequest = proxyquire('../jsonrequest', {
             'axios': validJsonStub(() => {}),

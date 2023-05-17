@@ -88,6 +88,16 @@ Api.prototype.translate = function(text, requestOptions) {
 };
 
 /**
+ * Split text into sentences
+ * @param {string} text
+ * @param {object} requestOptions
+ * @returns {Promise}
+ */
+Api.prototype.splitSentences = function(text, requestOptions) {
+    return this._checkText('split', text, requestOptions);
+};
+
+/**
  * Spell check
  * @param {string} text
  * @param {object} requestOptions

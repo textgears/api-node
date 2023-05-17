@@ -72,6 +72,13 @@ interface ITextgearsApi {
     paraphrase(text: string | Array<string>, options?: ICheckRequestOptions): Promise<any>;
 
     /**
+     * Split sentences
+     * @param text
+     * @param options
+     */
+    splitSentences(text: string | Array<string>, options?: ICheckRequestOptions): Promise<any>;
+
+    /**
      * Autocorrect text
      * @param text
      * @param options
