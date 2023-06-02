@@ -45,8 +45,6 @@ or
 ./node_modules/nyc/bin/nyc.js ./node_modules/mocha/bin/mocha
 ```
 
-https://github.com/textgears/api-node
-
 [textgears]: https://textgears.com/
 [package]: https://www.npmjs.com/package/textgears-api
 [api]: https://textgears.com/api/
