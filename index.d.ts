@@ -47,9 +47,17 @@ interface ICheckRequestOptions extends IRequestOptions {
 }
 
 /**
+ *  Text transforming options
+ */
+interface ITransformRequestOptions extends ICheckRequestOptions {
+    creativity?: number,
+    options?: number,
+}
+
+/**
  *  Translation options
  */
-interface ITranslateOptions extends IRequestOptions {
+interface ITranslateOptions extends ITransformRequestOptions {
     target_language: string
 }
 
@@ -62,14 +70,14 @@ interface ITextgearsApi {
      * @param text
      * @param options
      */
-    translate(text: string | Array<string>, options?: IRequestOptions): Promise<any>;
+    translate(text: string | Array<string>, options?: ITranslateOptions): Promise<any>;
 
     /**
      * Text paraphrasing
      * @param text
      * @param options
      */
-    paraphrase(text: string | Array<string>, options?: IRequestOptions): Promise<any>;
+    paraphrase(text: string | Array<string>, options?: ITransformRequestOptions): Promise<any>;
 
     /**
      * Split sentences

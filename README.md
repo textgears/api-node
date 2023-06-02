@@ -4,13 +4,13 @@
 
 ## install
 
-install the [package] with [`npm`][npm]:
+install the [package] with `npm`:
 
 ```sh
 $ npm install textgears-api
 ```
 
-or with [`yarn`][yarn]:
+or with `yarn`:
 
 ```sh
 $ yarn add textgears-api
@@ -49,7 +49,6 @@ https://github.com/textgears/api-node
 
 [textgears]: https://textgears.com/
 [package]: https://www.npmjs.com/package/textgears-api
-[npm]: https://www.npmjs.com/
 [api]: https://textgears.com/api/
 [travis]: https://travis-ci.org/insbrook/textgears-api-node
 [travis-badge]: https://travis-ci.org/insbrook/textgears-api-node.svg?branch=master

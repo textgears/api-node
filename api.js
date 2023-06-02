@@ -56,6 +56,16 @@ Api.prototype._checkText = function(checkMethod, text, requestOptions) {
         }
     );
 };
+Api.prototype._transformText = function(checkMethod, text, requestOptions) {
+    requestOptions = requestOptions || {};
+    this.validateText(text);
+    requestOptions.text = text;
+    return this.request(
+        this.options.endpoint + '/' + checkMethod,
+        this.key,
+        requestOptions
+    );
+};
 
 /**
  * Autocorrection check
@@ -74,7 +84,7 @@ Api.prototype.correct = function(text, requestOptions) {
  * @returns {Promise}
  */
 Api.prototype.paraphrase = function(text, requestOptions) {
-    return this._checkText('paraphrase', text, requestOptions);
+    return this._transformText('paraphrase', text, requestOptions);
 };
 
 /**
@@ -84,7 +94,7 @@ Api.prototype.paraphrase = function(text, requestOptions) {
  * @returns {Promise}
  */
 Api.prototype.translate = function(text, requestOptions) {
-    return this._checkText('translate', text, requestOptions);
+    return this._transformText('translate', text, requestOptions);
 };
 
 /**
@@ -94,7 +104,7 @@ Api.prototype.translate = function(text, requestOptions) {
  * @returns {Promise}
  */
 Api.prototype.splitSentences = function(text, requestOptions) {
-    return this._checkText('split', text, requestOptions);
+    return this._transformText('split', text, requestOptions);
 };
 
 /**
