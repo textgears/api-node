@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2022, Alexander Yakovlev <insbrook@gmail.com>
+// Copyright (c) 2023, Alexander Yakovlev <insbrook@gmail.com>
 //
 //   Permission to use, copy, modify, and/or distribute this software for any
 // purpose with or without fee is hereby granted, provided that the above
@@ -21,8 +21,8 @@
  */
 
 function Api(request, key, options) {
-    this.request = request;
-    this.options = options;
+    this.request = request || {};
+    this.options = options || {};
     this.key = key;
 }
 
@@ -53,6 +53,7 @@ Api.prototype._checkText = function(checkMethod, text, requestOptions) {
             text: text,
             language: requestOptions.language || this.options.language,
             ai: requestOptions.ai || this.options.ai,
+            rules: requestOptions.rules || this.options.rules || '',
         }
     );
 };
